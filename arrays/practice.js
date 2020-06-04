@@ -93,7 +93,7 @@ function evenFinder(nums) {
   let arr = [];
 
   for(let i = 0; i < nums.length; i++) {
-    if(nums % 2 === 0) {
+    if(nums[i] % 2 === 0) {
       arr.push(nums[i]);
     }
   }
@@ -128,7 +128,16 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 */
 
 //Code Here
+function divider(numbersArray) {
+  let evens = [];
+  let odds = [];
 
+  for(let i = 0; i < numbersArray.length; i++) {
+    numbersArray[i] % 2 === 0 ? evens.push(numbersArray[i]) : odds.push(numbersArray[i]);
+  }
+
+  return [evens, odds];
+}
 
 
 ////////// PROBLEM 7 //////////
@@ -150,7 +159,16 @@ var getRandomArbitrary = function() {
 */
 
 //Code Here
+function finder(arr) {
+  randomNumber = getRandomArbitrary();
+  let isPresent = false;
 
+  for(let i = 0; i < arr.length; i++) {
+    isPresent = (arr[i] === randomNumber) ? true : false;
+  }
+
+  return isPresent;
+}
 
 
 ////////// PROBLEM 8 //////////
@@ -179,6 +197,31 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 */
 
 //Code Here
+function removeItem(myGroceryList, item) {
+  if(!myGroceryList || !item) {
+    return [];
+  } else {
+    for(let i = 0; i < myGroceryList.length; i++) {
+      if(myGroceryList[i] === item) {
+        myGroceryList.splice(i, 1);
+      }
+    }
+    
+    return myGroceryList;
+    // return newList.length === myGroceryList.length ? myGroceryList : newList;  
+  }
+}
+
+function addItem(myGroceryList, item) {
+  if(!myGroceryList || !item) {
+    return [];
+  } else if(myGroceryList && !item) {
+    return myGroceryList;
+  } else {
+    myGroceryList.push(item);
+    return myGroceryList;
+  }
+}
 
 
 
@@ -189,7 +232,14 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 */
 
 //Code Here
+function maker() {
+  arr = [];
+  for(let i = 1; i <= 215; i++) {
+    arr.push(i);
+  }
 
+  return arr;
+}
 
 
 ////////// PROBLEM 10 //////////
@@ -205,6 +255,13 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 */
   
 //Code Here
+function addTen(numbers) {
+  for (let i = 0; i < numbers.length; i++) {
+    numbers[i] = parseInt(numbers[i]) + 10;
+  }
+
+  return numbers;
+}
 
 
 
@@ -230,7 +287,9 @@ for(var i = 0; i < num2; i++){
 */
 
 //Code Here
-
+function longer(arr1, arr2) {
+  return arr1.length > arr2.length ? arr1 : arr2;
+}
 
 
 /*
@@ -242,7 +301,21 @@ for(var i = 0; i < num2; i++){
 */
 
 //Code Here
+function both(arr1, arr2) {
+  let longerArray = longer(arr1, arr2);
+  let shorterArray = arr1 === longer ? arr2 : arr1;
+  let newArray = [];
 
+  // Search each element of the longer array in the shorter array 
+  for(let i = 0; i < longerArray.length; i++) {
+    if(shorterArray.find(element => element === longerArray[i])) {
+      // push element to newArray if found in shorterArray
+      newArray.push(longerArray[i]);
+    }
+  }
+
+  return newArray;
+}
 
 
 ////////// PROBLEM 12 //////////
@@ -283,8 +356,12 @@ var colt = {
 */
 
 //Code Here
+devMountainEmployees.push(joe);
+devMountainEmployees.push(cahlan);
+devMountainEmployees.push(ryan);
+devMountainEmployees.push(colt);
 
-
+console.log(devMountainEmployees.length);
 
 /*
   Now let's say Cahlan has to take a leave of absence.
@@ -292,6 +369,11 @@ var colt = {
 */
 
 //Code Here
+for (let i = 0; i < devMountainEmployees.length; i++) {
+  if(devMountainEmployees[i] === cahlan) {
+    devMountainEmployees.splice(i, 1);
+  }
+}
 
 
 
@@ -304,7 +386,7 @@ var colt = {
 */
 
 //Code Here
-
+let users= [];
 
 
 /*
@@ -325,7 +407,23 @@ var user1 = {
 // Do not edit the code above.
 
 //Code Here
-
+users.push(user1);
+users.push(
+  {
+    name: 'User Two',
+    email: 'user.2@devmounta.in',
+    password: 'pw2',
+    username: 'user2'
+  }
+);
+users.push(
+  {
+    name: 'User Three',
+    email: 'user.3@devmounta.in',
+    password: 'pw3',
+    username: 'user3'
+  }
+);
 
 
 /*
@@ -339,7 +437,11 @@ var user1 = {
 */
 
 //Code Here
-
+for(let i = 0; i < users.length; i++) {
+  if(users[i].email === 'mark.mciver@devmounta.in') {
+    users.splice(i, 1);
+  }
+}
 
 
 /*
