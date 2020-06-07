@@ -208,7 +208,6 @@ function removeItem(myGroceryList, item) {
     }
     
     return myGroceryList;
-    // return newList.length === myGroceryList.length ? myGroceryList : newList;  
   }
 }
 
